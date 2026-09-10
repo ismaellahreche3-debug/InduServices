@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>InduServices — Gestion industrielle</title>
+<style>
+:root{--navy:#071525;--navy2:#0d2035;--blue:#1478ff;--blue2:#eaf3ff;--text:#132238;--muted:#718096;--line:#e6ebf2;--bg:#f6f8fb;--green:#16a36b;--orange:#f59e0b;--red:#ef4444}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:var(--bg)}button,input,select,textarea{font:inherit}
+button{cursor:pointer;border:0}.hidden{display:none!important}.landing{min-height:100vh;background:#fff}
+.top{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 6%;border-bottom:1px solid #edf0f4;background:#fff}
+.logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:21px;line-height:.9}.mark{width:35px;height:35px;border-radius:10px;background:var(--navy);display:grid;place-items:center;color:#fff;font-size:20px;font-weight:900}.logo span{display:block}
+.navlinks{display:flex;gap:30px;font-size:14px;color:#42536a}.btn{border-radius:10px;padding:12px 19px;font-weight:700}.primary{background:var(--navy);color:#fff}.outline{background:#fff;border:1px solid #d9e0e8;color:var(--text)}
+.hero{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding:75px 30px 55px}.eyebrow{display:inline-flex;padding:7px 11px;border:1px solid #cfe0f5;border-radius:99px;color:#165ca8;background:#f5faff;font-size:12px;font-weight:800;text-transform:uppercase}.hero h1{font-size:58px;line-height:1.02;letter-spacing:-2.5px;margin:20px 0}.hero h1 span{color:#1667c7}.hero p{font-size:18px;line-height:1.65;color:#607087;max-width:600px}.actions{display:flex;gap:12px;margin-top:28px}.hero-card{height:430px;border-radius:26px;overflow:hidden;position:relative;background:linear-gradient(145deg,#0c2743,#163f63);box-shadow:0 25px 60px #0b213b22}.hero-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 65% 25%,#4fa3ff55,transparent 35%),linear-gradient(135deg,transparent 40%,#06142288),repeating-linear-gradient(90deg,#ffffff05 0 1px,transparent 1px 60px)}.plant{position:absolute;bottom:0;left:0;right:0;height:62%;background:linear-gradient(#294d6a,#0b2035);clip-path:polygon(0 55%,8% 48%,14% 58%,22% 35%,31% 48%,42% 20%,51% 50%,61% 30%,69% 48%,78% 15%,88% 42%,100% 25%,100% 100%,0 100%);opacity:.9}.hero-badge{position:absolute;right:24px;top:24px;background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 15px 35px #0003}.hero-badge strong{font-size:25px}.features{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;max-width:1180px;margin:0 auto;padding:25px 30px 75px}.feature{background:#fff;border:1px solid var(--line);padding:20px;border-radius:15px}.feature b{display:block;margin-bottom:7px}.feature span{color:var(--muted);font-size:13px}
+.login{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;background:var(--navy)}.login-left{padding:7%;color:#fff;background:linear-gradient(145deg,#071525,#123553)}.login-left h2{font-size:45px;max-width:500px}.login-left p{color:#b9c8d8;line-height:1.7;max-width:500px}.login-points{margin-top:40px;display:grid;gap:15px}.login-point{display:flex;gap:12px;align-items:center;color:#d9e6f2}.login-right{display:grid;place-items:center;padding:30px;background:#f7f9fc}.login-box{width:min(440px,100%);background:#fff;border:1px solid var(--line);border-radius:22px;padding:35px;box-shadow:0 20px 60px #001b3d16}.login-box h1{margin:0 0 8px}.login-box p{color:var(--muted)}label{font-size:13px;font-weight:700;display:block;margin:18px 0 7px}input,select,textarea{width:100%;padding:13px 14px;border:1px solid #dce3ec;border-radius:10px;outline:none;background:#fff}input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #1478ff12}.full{width:100%;margin-top:22px}.demo{margin-top:15px;background:#f4f8fd;border-radius:10px;padding:12px;font-size:12px;color:#61728a}
+.app{display:flex;min-height:100vh}.side{width:245px;background:var(--navy);color:#fff;padding:23px 15px;position:fixed;inset:0 auto 0 0}.side .logo{padding:0 10px 35px}.side .mark{background:#fff;color:var(--navy)}.menu{display:grid;gap:5px}.menu button{background:transparent;color:#aebfd1;text-align:left;padding:12px 13px;border-radius:9px;font-weight:600}.menu button.active,.menu button:hover{background:#126bdc;color:#fff}.side-bottom{position:absolute;bottom:20px;left:15px;right:15px}.content{margin-left:245px;width:calc(100% - 245px)}.bar{height:72px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 32px;position:sticky;top:0;z-index:5}.search{width:380px}.search input{background:#f7f9fc}.profile{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700}.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#ddecff;color:#1765b7}.main{padding:30px}.page-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.page-head h1{margin:0 0 4px;font-size:28px}.page-head p{margin:0;color:var(--muted)}.cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px}.metric small{color:var(--muted)}.metric strong{display:block;font-size:28px;margin:10px 0 3px}.up{color:var(--green);font-size:12px;font-weight:700}.grid2{display:grid;grid-template-columns:1.2fr .8fr;gap:16px;margin-top:16px}.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}.panel h3{margin:0 0 18px}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:14px 10px;border-bottom:1px solid #edf0f4;text-align:left;font-size:13px}.table th{color:#718096;font-size:12px}.badge{padding:5px 9px;border-radius:99px;font-size:11px;font-weight:800;display:inline-block}.b-blue{background:#eaf3ff;color:#1267c5}.b-green{background:#e8f8f1;color:#0b8b59}.b-orange{background:#fff5df;color:#b26b00}.b-red{background:#ffeded;color:#c43131}.chart{height:220px;display:flex;align-items:end;gap:14px;padding:20px 10px 0}.barx{flex:1;background:linear-gradient(#2a8cff,#1467d3);border-radius:7px 7px 0 0;min-height:25px}.activity{display:grid;gap:15px}.activity-row{display:flex;gap:12px;align-items:center}.dot{width:10px;height:10px;border-radius:50%;background:var(--blue)}.modal{position:fixed;inset:0;background:#07152588;display:grid;place-items:center;z-index:20;padding:20px}.modal-box{background:#fff;width:min(620px,100%);border-radius:18px;padding:25px}.modal-head{display:flex;justify-content:space-between;align-items:center}.close{background:#f1f4f8;border-radius:8px;width:35px;height:35px}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.formgrid .wide{grid-column:1/-1}.ai-box{background:linear-gradient(135deg,#071525,#123c63);color:#fff;border-radius:18px;padding:25px}.ai-box p{color:#c4d4e4}.ai-result{white-space:pre-wrap;background:#fff;color:var(--text);border-radius:12px;padding:18px;margin-top:15px;line-height:1.6}.empty{padding:45px;text-align:center;color:var(--muted)}
+@media(max-width:900px){.hero{grid-template-columns:1fr}.hero h1{font-size:43px}.features{grid-template-columns:1fr 1fr}.navlinks{display:none}.login{grid-template-columns:1fr}.login-left{display:none}.side{width:72px}.side .logo span,.menu button span,.side-bottom span{display:none}.menu button{text-align:center}.content{margin-left:72px;width:calc(100% - 72px)}.bar{padding:0 15px}.search{width:45%}.cards{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.main{padding:18px}}
+@media(max-width:560px){.features{grid-template-columns:1fr}.hero{padding:45px 20px}.hero-card{height:330px}.cards{grid-template-columns:1fr 1fr}.page-head{align-items:flex-start;gap:10px}.page-head .btn{padding:10px}.table{min-width:600px}.panel{overflow:auto}.formgrid{grid-template-columns:1fr}.formgrid .wide{grid-column:auto}}
+
+.photo-hero{background-image:url("https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1200&q=85");background-size:cover;background-position:center}
+.photo-overlay{position:absolute;inset:0;background:linear-gradient(180deg,#07152522,#071525b8)}
+.photo-caption{position:absolute;left:24px;bottom:24px;color:#fff;display:grid;gap:5px}.photo-caption span{font-size:12px;color:#d9e7f4}
+.photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}.mini-photo{height:155px;border-radius:14px;background-size:cover;background-position:center;overflow:hidden;position:relative}.mini-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,#071525cc)}.mini-photo>div{position:absolute;z-index:2;bottom:15px;left:16px;color:#fff;display:grid;gap:4px}.mini-photo span{font-size:11px;color:#d6e2ee}.p1{background-image:url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80")}.p2{background-image:url("https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80")}.p3{background-image:url("https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=80")}
+.client-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}.client-photo{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden}.client-photo-img{height:125px;background-size:cover;background-position:center}.c0 .client-photo-img{background-image:url("https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=700&q=80")}.c1 .client-photo-img{background-image:url("https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=700&q=80")}.c2 .client-photo-img{background-image:url("https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=700&q=80")}.client-info{padding:14px;display:grid;gap:5px}.client-info span,.client-info small{color:var(--muted);font-size:12px}
+@media(max-width:700px){.photo-strip,.client-photos{grid-template-columns:1fr}.mini-photo{height:140px}}
+</style>
+</head>
+<body>
+
+<div id="landing" class="landing">
+  <header class="top">
+    <div class="logo"><div class="mark">◆</div><div><span>INDU</span><span>SERVICES</span></div></div>
+    <nav class="navlinks"><span>Accueil</span><span>Fonctionnalités</span><span>Tarifs</span><span>Contact</span></nav>
+    <button class="btn primary" onclick="showLogin()">Se connecter</button>
+  </header>
+  <section class="hero">
+    <div>
+      <div class="eyebrow">Solutions pour l'industrie</div>
+      <h1>Simplifiez la gestion de vos opérations <span>industrielles.</span></h1>
+      <p>Un SaaS pensé pour les entreprises de maintenance, logistique et services industriels. Clients, devis, interventions, documents et IA : tout au même endroit.</p>
+      <div class="actions"><button class="btn primary" onclick="showLogin()">Commencer gratuitement</button><button class="btn outline" onclick="showLogin()">Voir la démo</button></div>
+    </div>
+    <div class="hero-card photo-hero">
+  <div class="photo-overlay"></div>
+  <div class="hero-badge"><strong>+250</strong><br><small>entreprises accompagnées</small></div>
+  <div class="photo-caption"><b>Une plateforme pensée pour le terrain.</b><span>Maintenance · Inspection · Logistique · Industrie</span></div>
+</div>
+  </section>
+  <section class="features">
+    <div class="feature"><b>◷ Gain de temps</b><span>Centralisez les tâches répétitives.</span></div>
+    <div class="feature"><b>✦ Plus d'efficacité</b><span>Suivez vos interventions en temps réel.</span></div>
+    <div class="feature"><b>▣ Sécurisé</b><span>Vos données restent dans votre espace.</span></div>
+    <div class="feature"><b>♙ Support dédié</b><span>Une interface conçue pour le terrain.</span></div>
+  </section>
+</div>
+
+<div id="login" class="login hidden">
+  <div class="login-left">
+    <div class="logo"><div class="mark">◆</div><div><span>INDU</span><span>SERVICES</span></div></div>
+    <h2>Des solutions concrètes pour un monde industriel en mouvement.</h2>
+    <p>Centralisez votre activité et laissez l'IA s'occuper des tâches administratives répétitives.</p>
+    <div class="login-points"><div class="login-point">✓ Clients et partenaires centralisés</div><div class="login-point">✓ Devis et interventions suivis</div><div class="login-point">✓ Assistant IA opérationnel</div></div>
+  </div>
+  <div class="login-right">
+    <div class="login-box">
+      <h1>Bon retour</h1><p>Connectez-vous à votre espace Indu Services.</p>
+      <label>Adresse e-mail</label><input id="email" value="demo@induservices.fr" type="email">
+      <label>Mot de passe</label><input id="password" value="demo1234" type="password">
+      <button class="btn primary full" onclick="login()">Se connecter</button>
+      <div id="loginError" class="demo">Démo : demo@induservices.fr / demo1234</div>
+    </div>
+  </div>
+</div>
+
+<div id="app" class="app hidden">
+  <aside class="side">
+    <div class="logo"><div class="mark">◆</div><div><span>INDU</span><span>SERVICES</span></div></div>
+    <div class="menu">
+      <button class="active" data-page="dashboard" onclick="page('dashboard',this)">⌂ <span>Tableau de bord</span></button>
+      <button data-page="clients" onclick="page('clients',this)">♙ <span>Clients</span></button>
+      <button data-page="quotes" onclick="page('quotes',this)">▣ <span>Devis</span></button>
+      <button data-page="interventions" onclick="page('interventions',this)">◫ <span>Interventions</span></button>
+      <button data-page="documents" onclick="page('documents',this)">□ <span>Documents</span></button>
+      <button data-page="ai" onclick="page('ai',this)">✦ <span>Assistant IA</span></button>
+    </div>
+    <div class="side-bottom"><button class="menu button" onclick="logout()" style="background:transparent;color:#aebfd1;padding:12px;width:100%">↪ <span>Déconnexion</span></button></div>
+  </aside>
+  <main class="content">
+    <div class="bar"><div class="search"><input placeholder="Rechercher un client, un devis, une intervention..." oninput="globalSearch(this.value)"></div><div class="profile"><div class="avatar">IS</div><span>InduServices Demo</span>⌄</div></div>
+    <div id="main" class="main"></div>
+  </main>
+</div>
+
+<div id="modal" class="modal hidden"><div class="modal-box"><div class="modal-head"><h2 id="modalTitle">Nouveau</h2><button class="close" onclick="closeModal()">×</button></div><div id="modalBody"></div></div></div>
+
+<script>
+const $=id=>document.getElementById(id);
+let currentData={clients:[],quotes:[],interventions:[],documents:[]};
+
+function showLogin(){ $("landing").classList.add("hidden"); $("login").classList.remove("hidden"); }
+async function login(){
+  const r=await fetch("/api/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:$("email").value,password:$("password").value})});
+  const d=await r.json();
+  if(!r.ok){$("loginError").textContent=d.error||"Erreur";return}
+  $("login").classList.add("hidden");$("app").classList.remove("hidden");page("dashboard",document.querySelector('.menu button'));
+}
+async function logout(){await fetch("/api/logout",{method:"POST"});location.reload()}
+async function api(url,opts={}){const r=await fetch(url,opts);if(r.status===401){location.reload();return null}return r.json()}
+function money(n){return new Intl.NumberFormat("fr-FR",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(n||0)}
+function badge(s){let c=s==="Planifiée"||s==="Accepté"||s==="Traité"?"b-green":s==="À valider"||s==="À traiter"?"b-orange":s==="À planifier"?"b-red":"b-blue";return `<span class="badge ${c}">${s}</span>`}
+function page(name,btn){
+  document.querySelectorAll(".menu button").forEach(b=>b.classList.remove("active"));if(btn)btn.classList.add("active");
+  if(name==="dashboard")renderDashboard(); if(name==="clients")renderClients(); if(name==="quotes")renderQuotes(); if(name==="interventions")renderInterventions(); if(name==="documents")renderDocuments(); if(name==="ai")renderAI();
+}
+async function loadAll(){currentData.clients=await api("/api/clients")||[];currentData.quotes=await api("/api/quotes")||[];currentData.interventions=await api("/api/interventions")||[];currentData.documents=await api("/api/documents")||[]}
+async function renderDashboard(){
+ const d=await api("/api/dashboard");await loadAll();
+ $("main").innerHTML=`<div class="page-head"><div><h1>Tableau de bord</h1><p>Vue d'ensemble de votre activité</p></div><button class="btn primary" onclick="page('ai')">✦ Demander à l'IA</button></div>
+ <div class="cards"><div class="card metric"><small>Clients</small><strong>${d.clients}</strong><span class="up">+${d.clients} actifs</span></div><div class="card metric"><small>Devis</small><strong>${d.quotes}</strong><span class="up">${d.pending} en attente</span></div><div class="card metric"><small>Interventions</small><strong>${d.interventions}</strong><span class="up">Suivi terrain</span></div><div class="card metric"><small>Documents</small><strong>${d.docs}</strong><span class="up">À traiter</span></div><div class="card metric"><small>CA devis</small><strong>${money(d.revenue)}</strong><span class="up">Volume actuel</span></div></div>
+ <div class="photo-strip">
+  <div class="mini-photo p1"><div><b>Sites & installations</b><span>Visualisez votre activité</span></div></div>
+  <div class="mini-photo p2"><div><b>Interventions terrain</b><span>Suivez les opérations</span></div></div>
+  <div class="mini-photo p3"><div><b>Documents clients</b><span>Tout au même endroit</span></div></div>
+</div>
+<div class="grid2"><div class="panel"><h3>Activité commerciale</h3><div class="chart"><div class="barx" style="height:42%"></div><div class="barx" style="height:58%"></div><div class="barx" style="height:50%"></div><div class="barx" style="height:72%"></div><div class="barx" style="height:64%"></div><div class="barx" style="height:86%"></div><div class="barx" style="height:78%"></div></div><div style="display:flex;justify-content:space-between;color:#8190a2;font-size:12px"><span>Lun</span><span>Mar</span><span>Mer</span><span>Jeu</span><span>Ven</span><span>Sam</span><span>Dim</span></div></div>
+ <div class="panel"><h3>Prochaines interventions</h3><div class="activity">${d.next_interventions.map(x=>`<div class="activity-row"><div class="dot"></div><div style="flex:1"><b>${x.title}</b><br><small style="color:#718096">${x.client} · ${x.date||"Date à définir"}</small></div>${badge(x.status)}</div>`).join("")}</div></div></div>`;
+}
+async function renderClients(){
+ currentData.clients=await api("/api/clients")||[];
+ $("main").innerHTML=`<div class="page-head"><div><h1>Clients</h1><p>Gérez vos clients et partenaires industriels</p></div><button class="btn primary" onclick="newClient()">+ Ajouter un client</button></div>
+ <div class="client-photos">${currentData.clients.map((x,i)=>`<div class="client-photo c${i%3}"><div class="client-photo-img"></div><div class="client-info"><b>${x.name}</b><span>${x.sector||"Industrie"}</span><small>${x.contact||"Contact entreprise"} · ${x.email||"—"}</small></div></div>`).join("")}</div>
+ <div class="panel"><input placeholder="Rechercher un client..." oninput="filterTable('clients',this.value)" style="margin-bottom:15px"><div style="overflow:auto"><table class="table"><thead><tr><th>Nom</th><th>Secteur</th><th>Contact</th><th>Téléphone</th><th>Email</th></tr></thead><tbody id="clientsRows">${currentData.clients.map(x=>`<tr><td><b>${x.name}</b></td><td>${x.sector||"—"}</td><td>${x.contact||"—"}</td><td>${x.phone||"—"}</td><td>${x.email||"—"}</td></tr>`).join("")}</tbody></table></div></div>`;
+}
+async function renderQuotes(){
+ currentData.quotes=await api("/api/quotes")||[];
+ $("main").innerHTML=`<div class="page-head"><div><h1>Devis</h1><p>Préparez, suivez et validez vos propositions commerciales</p></div><button class="btn primary" onclick="newQuote()">+ Nouveau devis</button></div><div class="panel"><div style="overflow:auto"><table class="table"><thead><tr><th>Client</th><th>Objet</th><th>Montant</th><th>Statut</th><th>Date</th></tr></thead><tbody>${currentData.quotes.map(x=>`<tr><td><b>${x.client}</b></td><td>${x.title}</td><td><b>${money(x.amount)}</b></td><td>${badge(x.status)}</td><td>${x.created_at?.slice(0,10)||"—"}</td></tr>`).join("")}</tbody></table></div></div>`;
+}
+async function renderInterventions(){
+ currentData.interventions=await api("/api/interventions")||[];
+ $("main").innerHTML=`<div class="page-head"><div><h1>Interventions</h1><p>Planifiez et pilotez les opérations terrain</p></div><button class="btn primary" onclick="newIntervention()">+ Nouvelle intervention</button></div><div class="panel"><div style="overflow:auto"><table class="table"><thead><tr><th>Date</th><th>Client</th><th>Intervention</th><th>Statut</th><th>Description</th></tr></thead><tbody>${currentData.interventions.map(x=>`<tr><td><b>${x.date||"À définir"}</b></td><td>${x.client}</td><td>${x.title}</td><td>${badge(x.status)}</td><td>${x.description||"—"}</td></tr>`).join("")}</tbody></table></div></div>`;
+}
+async function renderDocuments(){
+ currentData.documents=await api("/api/documents")||[];
+ $("main").innerHTML=`<div class="page-head"><div><h1>Documents</h1><p>Centralisez les demandes, rapports et bons de commande</p></div><button class="btn primary" onclick="toast('Import de documents bientôt disponible')">+ Importer</button></div><div class="panel"><div style="overflow:auto"><table class="table"><thead><tr><th>Document</th><th>Type</th><th>Statut</th></tr></thead><tbody>${currentData.documents.map(x=>`<tr><td><b>${x.name}</b></td><td>${x.type||"Document"}</td><td>${badge(x.status)}</td></tr>`).join("")}</tbody></table></div></div>`;
+}
+function renderAI(){
+ $("main").innerHTML=`<div class="page-head"><div><h1>Assistant IA</h1><p>Transformez une demande client en actions concrètes.</p></div></div><div class="ai-box"><h2>✦ Votre copilote industriel</h2><p>Collez un e-mail, une demande de prix ou un compte-rendu. L'IA structure les informations et propose les prochaines actions.</p><textarea id="aiText" rows="7" placeholder="Ex : Bonjour, nous avons besoin d'une intervention de maintenance sur notre installation mardi prochain..."></textarea><button class="btn primary" style="margin-top:12px;background:#fff;color:#071525" onclick="askAI()">Analyser la demande</button><div id="aiResult" class="ai-result hidden"></div></div>`;
+}
+async function askAI(){
+ const text=$("aiText").value;const r=await api("/api/ai",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({text})});$("aiResult").classList.remove("hidden");$("aiResult").textContent=r.answer||r.error;
+}
+function modal(title,body){$("modalTitle").textContent=title;$("modalBody").innerHTML=body;$("modal").classList.remove("hidden")}
+function closeModal(){$("modal").classList.add("hidden")}
+function newClient(){modal("Ajouter un client",`<div class="formgrid"><div class="wide"><label>Nom de l'entreprise</label><input id="mName"></div><div><label>Secteur</label><input id="mSector" placeholder="Maintenance, chimie..."></div><div><label>Contact</label><input id="mContact"></div><div><label>Téléphone</label><input id="mPhone"></div><div><label>Email</label><input id="mEmail"></div></div><button class="btn primary full" onclick="saveClient()">Créer le client</button>`)}
+async function saveClient(){await api("/api/clients",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({name:$("mName").value,sector:$("mSector").value,contact:$("mContact").value,phone:$("mPhone").value,email:$("mEmail").value})});closeModal();renderClients()}
+function newQuote(){modal("Nouveau devis",`<div class="formgrid"><div><label>Client</label><input id="qClient" placeholder="Norgal"></div><div><label>Montant (€)</label><input id="qAmount" type="number" placeholder="2500"></div><div class="wide"><label>Objet du devis</label><input id="qTitle" placeholder="Maintenance préventive"></div><div class="wide"><label>Statut</label><select id="qStatus"><option>Brouillon</option><option>À valider</option><option>Envoyé</option><option>Accepté</option></select></div></div><button class="btn primary full" onclick="saveQuote()">Créer le devis</button>`)}
+async function saveQuote(){await api("/api/quotes",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({client:$("qClient").value,title:$("qTitle").value,amount:$("qAmount").value,status:$("qStatus").value})});closeModal();renderQuotes()}
+function newIntervention(){modal("Nouvelle intervention",`<div class="formgrid"><div><label>Client</label><input id="iClient" placeholder="Norgal"></div><div><label>Date</label><input id="iDate" type="date"></div><div class="wide"><label>Intitulé</label><input id="iTitle" placeholder="Contrôle installation"></div><div class="wide"><label>Description</label><textarea id="iDesc" rows="4" placeholder="Détails de l'opération..."></textarea></div></div><button class="btn primary full" onclick="saveIntervention()">Planifier l'intervention</button>`)}
+async function saveIntervention(){await api("/api/interventions",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({client:$("iClient").value,title:$("iTitle").value,date:$("iDate").value,description:$("iDesc").value,status:"À planifier"})});closeModal();renderInterventions()}
+function filterTable(type,q){const rows=currentData[type].filter(x=>JSON.stringify(x).toLowerCase().includes(q.toLowerCase()));if(type==="clients")$("clientsRows").innerHTML=rows.map(x=>`<tr><td><b>${x.name}</b></td><td>${x.sector||"—"}</td><td>${x.contact||"—"}</td><td>${x.phone||"—"}</td><td>${x.email||"—"}</td></tr>`).join("")}
+function globalSearch(v){if(v.length>2){/* ready for global search */}}
+function toast(msg){alert(msg)}
+</script>
+</body>
+</html>
